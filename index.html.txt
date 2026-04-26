@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Link Foundation - University of Punjab</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+        }
+
+        .admin-login {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .admin-login:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ffd700;
+            display: block;
+        }
+
+        /* University Info */
+        .uni-info {
+            background: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .uni-info h2 {
+            color: #ff6b6b;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .uni-info .inaugurated {
+            color: #666;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        /* Camp Info */
+        .camp-info {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .camp-card {
+            background: rgba(255,255,255,0.1);
+            padding: 3rem;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .camp-date {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+
+        .camp-location {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .camp-timing {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Donor Section */
+        .donor-section {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            border-radius: 2px;
+        }
+
+        /* Share Section */
+        .share-section {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .share-btn {
+            background: white;
+            color: #333;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .share-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 3px rgba(255,107,107,0.1);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255,107,107,0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        /* Donors List */
+        .donors-list {
+            background: white;
+            padding: 5rem 0;
+        }
+
+        .donor-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .donor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .donor-card.cash-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .donor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .donor-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .donor-blood {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .donor-amount {
+            background: rgba(255,255,255,0.2);
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .donor-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .donor-comments {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            display: none;
+            background: #1a1a2e;
+            color: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 20px;
+        }
+
+        .admin-panel h3 {
+            margin-bottom: 1.5rem;
+            color: #ffd700;
+        }
+
+        /* Contact */
+        .contact {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .contact-numbers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .phone-number {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .phone-number:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .stats {
+                gap: 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .share-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-tint"></i>
+                Blood Link Foundation
+            </div>
+            <div class="admin-login" onclick="toggleAdmin()">
+                <i class="fas fa-user-shield"></i> Admin
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Every Drop Counts</h1>
+            <p>Join University of Punjab's noble mission to save lives through blood donation</p>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number" id="totalDonors">0</span>
+                    Lives Saved
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="totalBlood">0</span>
+                    Units Collected
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="totalCash">0</span>
+                    PKR Raised
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- University Info -->
+    <section class="uni-info">
+        <div class="container">
+            <h2>University Of Punjab, Lahore</h2>
+            <p>(Quaid-e-Azam Campus)</p>
+            <p class="inaugurated">Inaugurated by: Dept. of Public Relations & Advertising</p>
+        </div>
+    </section>
+
+    <!-- Camp Information -->
+    <section class="camp-info">
+        <div class="container">
+            <div class="camp-card">
+                <i class="fas fa-calendar-alt" style="font-size: 4rem; margin-bottom: 1rem; color: #ffd700;"></i>
+                <div class="camp-date">29 April 2026</div>
+                <div class="camp-location">
+                    <i class="fas fa-map-marker-alt"></i> Dept. of Public Relations & Advertising
+                </div>
+                <div class="camp-timing">
+                    <i class="fas fa-clock"></i> Morning Session
+                </div>
+                <h3 style="margin-top: 2rem; font-size: 1.8rem;">Join us for this life-saving event!</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Login Modal -->
+    <div id="adminModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000;">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 3rem; border-radius: 20px; text-align: center; max-width: 400px;">
+            <h2 style="color: #ff6b6b; margin-bottom: 1.5rem;">Admin Login</h2>
+            <input type="password" id="adminPassword" placeholder="Enter Password" style="width: 100%; padding: 15px; margin-bottom: 1.5rem; border: 2px solid #e1e5e9; border-radius: 12px; font-size: 1rem;">
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <button class="btn" onclick="loginAdmin()">Login</button>
+                <button class="btn btn-secondary" onclick="toggleAdmin()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Donor Registration -->
+    <section class="donor-section">
+        <div class="container">
+            <h2 class="section-title">Become a Hero Today</h2>
+            <div class="form-grid">
+                <div>
+                    <h3>Blood Donation</h3>
+                    <form id="bloodForm">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" id="bloodName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Department *</label>
+                            <input type="text" id="bloodDept" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Blood Group *</label>
+                            <select id="bloodGroup" required>
+                                <option value="">Select Blood Group</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Contact Number</label>
+                            <input type="tel" id="bloodContact">
+                        </div>
+                        <div class="form-group">
+                            <label>Comments</label>
+                            <textarea rows="3" id="bloodComments" placeholder="Share your thoughts about our project..."></textarea>
+                        </div>
+                        <button type="submit" class="btn"><i class="fas fa-heart"></i> Register as Blood Donor</button>
+                    </form>
+                </div>
+                <div>
+                    <h3>Monetary Support</h3>
+                    <form id="cashForm">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" id="cashName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Department *</label>
+                            <input type="text" id="cashDept" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Amount (PKR) *</label>
+                            <input type="number" id="cashAmount" min="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Contact Number</label>
+                            <input type="tel" id="cashContact">
+                        </div>
+                        <div class="form-group">
+                            <label>Comments</label>
+                              <textarea rows="3" id="cashComments" placeholder="Why are you supporting our cause?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-secondary">
+                            <i class="fas fa-donate"></i> Donate Now
+                        </button>
+                    </form>
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: #e8f5e8; border-radius: 12px; border-left: 5px solid #4caf50;">
+                        <strong>Bank Details:</strong><br>
+                        United Limited Bank<br>
+                        Account: 0792332294809<br>
+                        Account Holder: Aroob Asif
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donors List -->
+    <section class="donors-list">
+        <div class="container">
+            <h2 class="section-title">Our Heroes</h2>
+            <div id="donorsContainer">
+                <div class="empty-state">
+                    <i class="fas fa-users" style="font-size: 4rem; color: #ddd; margin-bottom: 1rem;"></i>
+                    <p>No donors yet. Be the first to join our noble cause!</p>
+                </div>
+            </div>
+            <div id="adminPanel" class="admin-panel">
+                <h3><i class="fas fa-cog"></i> Admin Panel</h3>
+                <button class="btn" onclick="clearAllData()" style="background: #ff4757; margin-bottom: 1rem;">
+                    Clear All Data
+                </button>
+                <p><strong>Total Donors:</strong> <span id="adminTotal">0</span></p>
+                <p><strong>Total Cash (PKR):</strong> <span id="adminCash">0</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">For More Info Contact Here:</h2>
+            <div class="contact-numbers">
+                <div class="phone-number">
+                    <i class="fas fa-phone" style="font-size: 1.5rem; margin-bottom: 0.5rem; display: block;"></i>
+                    +92 307 9736886
+                </div>
+                <div class="phone-number">
+                    <i class="fas fa-phone" style="font-size: 1.5rem; margin-bottom: 0.5rem; display: block;"></i>
+                    +92 301 0647044
+                </div>
+                <div class="phone-number">
+                    <i class="fas fa-phone" style="font-size: 1.5rem; margin-bottom: 0.5rem; display: block;"></i>
+                    +92 324 1754480
+                </div>
+                <div class="phone-number">
+                    <i class="fas fa-phone" style="font-size: 1.5rem; margin-bottom: 0.5rem; display: block;"></i>
+                    +92 3064020423
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let donors = JSON.parse(localStorage.getItem('bloodDonors')) || [];
+        let cashDonors = JSON.parse(localStorage.getItem('cashDonors')) || [];
+        let isAdminLoggedIn = false;
+
+        // Initialize
